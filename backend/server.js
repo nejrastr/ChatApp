@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import authRoutes from "./routes/auth.routes.js";
 import messageRoutes from "./routes/message.routes.js";
-
+import userRoutes from "./routes/user.routes.js";
 import connectToDB from "./db/connect.js";
 import { signup } from "./controllers/auth.controller.js";
 
@@ -18,6 +18,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes); //midleware
+app.use("api/users", userRoutes);
 
 connectToDB();
 app.listen(PORT, () => {
